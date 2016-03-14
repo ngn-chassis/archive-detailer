@@ -1,0 +1,24 @@
+{
+  "name": "chassis-detailer",
+  "version": "0.0.1",
+  "description": "UI component plugins for the Chassis Layout system (chassis-sass).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test, deployment only.\" && exit 0"
+  },
+  "author": "Graham Butler",
+  "files": [
+    "src"
+  ],
+  "license": "APL2",
+  "devDependencies": {
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-header": "^1.7.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-sass-glob": "0.0.2",
+    "wrench": "^1.5.8"
+  },
+  "dependencies": {}
+}
