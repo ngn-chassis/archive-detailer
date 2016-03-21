@@ -7,9 +7,9 @@
 @import 'detailer/config/theme';
 @import 'detailer/config/z-index';
 
-@import '../chassis-sass/typography/definitions';
-@import '../chassis-sass/typography/functions';
-@import '../chassis-sass/typography/mixins';
+@import '../chassis-sass/chassis/typography/definitions';
+@import '../chassis-sass/chassis/typography/functions';
+@import '../chassis-sass/chassis/typography/mixins';
 
 // Used to disable detailer components if they are included without the
 // Detailer core plugin
