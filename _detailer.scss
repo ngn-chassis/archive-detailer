@@ -1,11 +1,11 @@
 // NGN Chassis
 // Detailer UI Plugin
 
-@import 'constants/colors';
+@import 'detailer/constants/colors';
 
-@import 'config/typography';
-@import 'config/theme';
-@import 'config/z-index';
+@import 'detailer/config/typography';
+@import 'detailer/config/theme';
+@import 'detailer/config/z-index';
 
 @import '../chassis-sass/typography/definitions';
 @import '../chassis-sass/typography/functions';
