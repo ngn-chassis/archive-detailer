@@ -74,135 +74,138 @@ $default-button-defs : ();
 }
 
 @mixin button-pseudo-class($type, $settings) {
-  $default: map-get($settings, default);
-  $defs: map-get($settings, $type);
+  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+    $default: map-get($settings, default);
+    $defs: map-get($settings, $type);
 
-  @if map-get($defs, bg-color) != map-get($default, bg-color) {
-    background: map-get($defs, bg-color);
-  }
+    @if map-get($defs, bg-color) != map-get($default, bg-color) {
+      background: map-get($defs, bg-color);
+    }
 
-  @if map-get($defs, has-border) != map-get($default, has-border) {
-    @if map-get($defs, has-border) {
-      @if map-get($defs, border-thickness) or map-get($defs, border-color) {
-        box-shadow: inset 0 0 0 map-get($defs, border-thickness) map-get($defs, border-color);
+    @if map-get($defs, has-border) != map-get($default, has-border) {
+      @if map-get($defs, has-border) {
+        @if map-get($defs, border-thickness) or map-get($defs, border-color) {
+          box-shadow: inset 0 0 0 map-get($defs, border-thickness) map-get($defs, border-color);
+        }
+      } @else {
+        box-shadow: none;
       }
-    } @else {
-      box-shadow: none;
     }
-  }
 
-  font: {
-    @if map-get($defs, fonts) != map-get($default, fonts) {
-      family: map-get($defs, fonts);
+    font: {
+      @if map-get($defs, fonts) != map-get($default, fonts) {
+        family: map-get($defs, fonts);
+      }
+      @if map-get($defs, font-weight) != map-get($default, font-weight) {
+        weight: map-get($defs, font-weight);
+      }
+      @if map-get($defs, font-style) != map-get($default, font-style) {
+        style: map-get($defs, font-style);
+      }
+      @if map-get($defs, font-variant) != map-get($default, font-variant) {
+        variant: map-get($defs, font-variant);
+      }
     }
-    @if map-get($defs, font-weight) != map-get($default, font-weight) {
-      weight: map-get($defs, font-weight);
-    }
-    @if map-get($defs, font-style) != map-get($default, font-style) {
-      style: map-get($defs, font-style);
-    }
-    @if map-get($defs, font-variant) != map-get($default, font-variant) {
-      variant: map-get($defs, font-variant);
-    }
-  }
 
-  text: {
-    @if map-get($defs, text-decoration) != map-get($default, text-decoration) {
-      decoration: map-get($defs, text-decoration);
+    text: {
+      @if map-get($defs, text-decoration) != map-get($default, text-decoration) {
+        decoration: map-get($defs, text-decoration);
+      }
+      @if map-get($defs, text-transform) != map-get($default, text-transform) {
+        transform: map-get($defs, text-transform);
+      }
     }
-    @if map-get($defs, text-transform) != map-get($default, text-transform) {
-      transform: map-get($defs, text-transform);
-    }
-  }
 
-  @if map-get($defs, text-color) != map-get($default, text-color) {
-    color: map-get($defs, text-color);
+    @if map-get($defs, text-color) != map-get($default, text-color) {
+      color: map-get($defs, text-color);
+    }
   }
 }
 
 
 @mixin button-styles($settings) {
-  $default: map-get($settings, default);
-  $disabled: map-get($settings, disabled);
+  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+    $default: map-get($settings, default);
+    $disabled: map-get($settings, disabled);
 
-  display: inline-block;
+    display: inline-block;
 
-  // Setup default padding, margin and line-height rules
-  @include inline-layout-rules(root);
+    // Setup default padding, margin and line-height rules
+    @include inline-layout-rules(root);
 
-  background: map-get($default, bg-color);
-  border-radius: map-get($default, border-radius);
+    background: map-get($default, bg-color);
+    border-radius: map-get($default, border-radius);
 
-  border: none;
-  outline: none;
-
-  @if map-get($default, has-border) {
-    box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($default, border-color);
-  } @else {
-    box-shadow: none;
-  }
-
-  vertical-align: middle;
-
-  font: {
-    @if map-get($default, font-family) != $font-family {
-      family: map-get($default, font-family);
-    }
-    @if map-get($default, font-weight) != $font-weight {
-      weight: map-get($default, font-weight);
-    }
-    @if map-get($default, font-style) != $font-style {
-      style: map-get($default, font-style);
-    }
-    @if map-get($default, font-variant) != $font-variant {
-      variant: map-get($default, font-variant);
-    }
-  }
-
-  text: {
-    align: center;
-    decoration: map-get($default, text-decoration);
-    transform: map-get($default, text-transform);
-  }
-
-  color: map-get($default, text-color);
-
-  cursor: pointer;
-
-  @extend %disable-text-selection;
-
-  // Ensure overwrite of <a> styles
-  &:link {
-    color: map-get($default, text-color);
-  }
-
-  &:visited {
-    @include button-pseudo-class(visited, $settings);
-  }
-
-  &:hover {
-    @include button-pseudo-class(hover, $settings);
-  }
-
-  &:active {
-    @include button-pseudo-class(active, $settings);
-  }
-
-  &.disabled {
-    background: map-get($disabled, bg-color);
+    border: none;
+    outline: none;
 
     @if map-get($default, has-border) {
-      box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($disabled, border-color);
+      box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($default, border-color);
+    } @else {
+      box-shadow: none;
     }
 
-    color: map-get($disabled, text-color);
-    @extend %disable-pointer-events;
-  }
+    vertical-align: middle;
 
-  &:focus {
-    outline: none;
-  }
+    font: {
+      @if map-get($default, font-family) != $font-family {
+        family: map-get($default, font-family);
+      }
+      @if map-get($default, font-weight) != $font-weight {
+        weight: map-get($default, font-weight);
+      }
+      @if map-get($default, font-style) != $font-style {
+        style: map-get($default, font-style);
+      }
+      @if map-get($default, font-variant) != $font-variant {
+        variant: map-get($default, font-variant);
+      }
+    }
 
+    text: {
+      align: center;
+      decoration: map-get($default, text-decoration);
+      transform: map-get($default, text-transform);
+    }
+
+    color: map-get($default, text-color);
+
+    cursor: pointer;
+
+    @extend %disable-text-selection;
+
+    // Ensure overwrite of <a> styles
+    &:link {
+      color: map-get($default, text-color);
+    }
+
+    &:visited {
+      @include button-pseudo-class(visited, $settings);
+    }
+
+    &:hover {
+      @include button-pseudo-class(hover, $settings);
+    }
+
+    &:active {
+      @include button-pseudo-class(active, $settings);
+    }
+
+    &.disabled {
+      background: map-get($disabled, bg-color);
+
+      @if map-get($default, has-border) {
+        box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($disabled, border-color);
+      }
+
+      color: map-get($disabled, text-color);
+      @extend %disable-pointer-events;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 %button {

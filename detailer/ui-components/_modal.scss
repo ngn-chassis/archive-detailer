@@ -19,18 +19,20 @@ $default-modal-defs : ();
 }
 
 @mixin modal-styles($settings) {
-  align-self: map-get($settings, vertical-alignment);
+  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+    align-self: map-get($settings, vertical-alignment);
 
-  min-width: $ui-min-width;
-  max-width: calc(#{$ui-max-width} - #{$ui-gutter});
+    min-width: $ui-min-width;
+    max-width: calc(#{$ui-max-width} - #{$ui-gutter});
 
-  min-height: 38.2vh;
-  max-height: 100vh;
+    min-height: 38.2vh;
+    max-height: 100vh;
 
-  overflow: auto;
-  z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, modal);
+    overflow: auto;
+    z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, modal);
 
-  background: map-get($settings, bg-color);
+    background: map-get($settings, bg-color);
+  }
 }
 
 %modal {

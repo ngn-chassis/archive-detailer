@@ -1,6 +1,6 @@
 {
   "name": "chassis-detailer",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "UI component plugins for the Chassis Layout system (chassis-sass).",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Graham Butler",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "chassis-sass": "0.0.22"
+    "chassis-sass": "0.0.23"
   },
   "dependencies": {}
 }

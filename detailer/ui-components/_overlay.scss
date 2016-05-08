@@ -23,26 +23,28 @@ $default-overlay-defs : ();
 }
 
 @mixin overlay-styles($settings) {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-  display: flex;
-  justify-content: map-get($settings, content-horizontal-alignment);
-  align-items: map-get($settings, content-vertical-alignment);
+    display: flex;
+    justify-content: map-get($settings, content-horizontal-alignment);
+    align-items: map-get($settings, content-vertical-alignment);
 
-  height: 100vh;
-  width: 100vw;
+    height: 100vh;
+    width: 100vw;
 
-  padding: 6.18vh 19.1vw;
+    padding: 6.18vh 19.1vw;
 
-  background-color: rgba(map-get($settings, bg-color), map-get($settings, bg-opacity));
-  background-image: map-get($settings, bg-image);
-  background-blend-mode: map-get($settings, bg-blend-mode);
+    background-color: rgba(map-get($settings, bg-color), map-get($settings, bg-opacity));
+    background-image: map-get($settings, bg-image);
+    background-blend-mode: map-get($settings, bg-blend-mode);
 
-  z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, overlay);
+    z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, overlay);
+  }
 }
 
 %overlay {
