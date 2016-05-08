@@ -1,0 +1,16 @@
+// NGN Chassis
+// Detailer UI Plugin
+
+@import 'detailer/constants/colors';
+
+@import 'detailer/config/typography';
+@import 'detailer/config/theme';
+@import 'detailer/config/z-index';
+
+@import '../chassis-sass/chassis/typography/definitions';
+@import '../chassis-sass/chassis/typography/functions';
+@import '../chassis-sass/chassis/typography/mixins';
+
+// Used to disable detailer components if they are included without the
+// Detailer core plugin
+$CHASSIS_DETAILER_INCLUDED: true;

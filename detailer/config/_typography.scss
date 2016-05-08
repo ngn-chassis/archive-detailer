@@ -9,12 +9,12 @@ $font-weight-defs : (
   light: 100,
   regular: 300,
   bold: 600
-) !default;
+)                                                 !default;
 
 $light   : map-get($font-weight-defs, light)      !default;
 $regular : map-get($font-weight-defs, regular)    !default;
 $bold    : map-get($font-weight-defs, bold)       !default;
 
-$font-weight  : $regular !default;
-$font-style   : normal   !default;
-$font-variant : normal   !default;
+$font-weight  : $regular                          !default;
+$font-style   : normal                            !default;
+$font-variant : normal                            !default;
