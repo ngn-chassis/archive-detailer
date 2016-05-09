@@ -6,25 +6,114 @@
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
 
   .chassis {
-
-    legend {
-      font: {
-        weight: $form-legend-font-weight;
-        style: $form-legend-font-style;
-        variant: $form-legend-font-variant;
+    
+    form {
+      > *:last-child,
+      fieldset > *:last-child {
+        margin-bottom: 0;
       }
+      
+      legend {
+        font: {
+          weight: $form-legend-font-weight;
+          style: $form-legend-font-style;
+          variant: $form-legend-font-variant;
+        }
 
-      text: {
-        decoration: $form-legend-text-decoration;
-        transform: $form-legend-text-transform;
+        text: {
+          decoration: $form-legend-text-decoration;
+          transform: $form-legend-text-transform;
+        }
       }
+      
+      .field {
+        @include block-layout-rules($has-padding: false);
+        
+        input:not([type='checkbox']):not([type='radio']),
+        textarea {
+          display: block;
+          width: 100%;
+          margin: {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          };
+        }
+      }
+      
+      .row {
+        display: flex;
+        flex-direction: column;
+        
+        @include block-layout-rules($has-padding: false);
+        
+        > *:last-child {
+          margin-bottom: 0;
+        }
+        
+        .group {
+          @include block-layout-rules($has-padding: false);
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          .field {
+            margin-bottom: 0;
+          }
+        }
+        
+        @if map-has-key($viewport-width-ranges, small) {
+          @include above-viewport-width(small) {
+            flex-direction: row;
+            
+            .field,
+            .group {
+              flex: 1 1 auto;
+              margin: 0 1em;
+              
+              &:first-child {
+                margin-left: 0;
+              }
+              
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+            
+            .group {
+              @include block-layout-rules($has-margin: false);
+              padding: {
+                top: 0;
+                bottom: 0;
+              }
+              
+              &:first-child {
+                padding-left: 0;
+              }
+              
+              &:last-child {
+                padding-right: 0;
+              }
+              
+              .field {
+                margin: 0;
+              }
+            }
+          }
+        }
+        
+      }
+      
     }
 
     label {
       display: block;
+      cursor: pointer;
     }
 
-    input,
+    input:not([type='checkbox']):not([type='radio']),
     textarea {
       font: {
         family: $textfield-fonts;
@@ -33,8 +122,19 @@
 
       border: 0;
       outline: 0;
-
-      box-shadow: inset 0 0 0 1px $textfield-border-color;
+      
+      @if $form-fields-rounded-corners {
+        border-radius: $form-fields-border-radius;
+      } 
+      
+      @if $form-fields-inset {
+        box-shadow: 
+          inset 0 0 0 1px $textfield-border-color,
+          $form-fields-inset-box-shadow
+        ;
+      } @else {
+        box-shadow: inset 0 0 0 1px $textfield-border-color;
+      }
 
       &:focus {
         outline: 0;
@@ -42,7 +142,7 @@
       }
     }
 
-    input {
+    input:not([type='checkbox']):not([type='radio']) {
       @include inline-layout-rules;
     }
 
@@ -56,15 +156,25 @@
 
       vertical-align: top;
     }
+    
+    input[type="checkbox"],
+    input[type="radio"] {
+      + label {
+        display: inline-block;
+      }
+    }
 
     button {
     	@extend %button;
+      
+      font: {
+        family: $textfield-fonts;
+        weight: $textfield-font-weight;
+      }
     }
-
+    
     @if map-has-key($viewport-width-ranges, tiny) {
       @include max-viewport-width(tiny) {
-        input,
-        textarea,
         button {
           display: block;
           width: 100%;

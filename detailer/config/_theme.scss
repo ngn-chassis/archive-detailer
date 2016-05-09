@@ -191,21 +191,27 @@ $modal-vertical-alignment : center !default;
 
 // :: Forms --------------------------------------------------------------------
 
-$form-legend-fonts           : $font-family     !default;
-$form-legend-font-weight     : $bold            !default;
-$form-legend-font-style      : normal           !default;
-$form-legend-font-variant    : normal           !default;
-$form-legend-text-color      : $text-color      !default;
-$form-legend-text-decoration : none             !default;
-$form-legend-text-transform  : none             !default;
+$form-fields-inset            : true             !default;
+$form-fields-inset-box-shadow : inset .0236em .0618em .382em .0382em rgba($black, .118) !default;
 
-$textfield-fonts             : $font-family     !default;
-$textfield-font-weight       : $regular         !default;
-$textfield-font-style        : normal           !default;
-$textfield-font-variant      : normal           !default;
-$textfield-text-color        : $text-color      !default;
-$textfield-text-decoration   : none             !default;
-$textfield-text-transform    : none             !default;
+$form-fields-rounded-corners  : true             !default;
+$form-fields-border-radius    : $default-border-radius !default;
 
-$textfield-border-color      : rgb(188,189,193) !default;
-$textfield-focus-ring-color  : $blue            !default;
+$form-legend-fonts            : $font-family     !default;
+$form-legend-font-weight      : $bold            !default;
+$form-legend-font-style       : normal           !default;
+$form-legend-font-variant     : normal           !default;
+$form-legend-text-color       : $text-color      !default;
+$form-legend-text-decoration  : none             !default;
+$form-legend-text-transform   : none             !default;
+
+$textfield-fonts              : $font-family     !default;
+$textfield-font-weight        : $regular         !default;
+$textfield-font-style         : normal           !default;
+$textfield-font-variant       : normal           !default;
+$textfield-text-color         : $text-color      !default;
+$textfield-text-decoration    : none             !default;
+$textfield-text-transform     : none             !default;
+
+$textfield-border-color       : rgb(188,189,193) !default;
+$textfield-focus-ring-color   : $blue            !default;
