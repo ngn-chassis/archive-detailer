@@ -3,18 +3,24 @@
 
 // :: Typgraphy Configuration --------------------------------------------------
 
-$font-family : Helvetica, Arial, sans-serif       !default;
+$font-family : Helvetica, Arial, sans-serif        !default;
 
 $font-weight-defs : (
-  light: 100,
-  regular: 300,
-  bold: 600
-)                                                 !default;
+  thin: 100,
+  light: 300,
+  regular: 400,
+  semibold: 500,
+  bold: 600,
+  ultra: 900
+)                                                  !default;
 
-$light   : map-get($font-weight-defs, light)      !default;
-$regular : map-get($font-weight-defs, regular)    !default;
-$bold    : map-get($font-weight-defs, bold)       !default;
+$thin     : map-get($font-weight-defs, thin)       !default;
+$light    : map-get($font-weight-defs, light)      !default;
+$regular  : map-get($font-weight-defs, regular)    !default;
+$semibold : map-get($font-weight-defs, semibold)   !default;
+$bold     : map-get($font-weight-defs, bold)       !default;
+$ultra    : map-get($font-weight-defs, ultra)      !default;
 
-$font-weight  : $regular                          !default;
-$font-style   : normal                            !default;
-$font-variant : normal                            !default;
+$font-weight  : $regular                           !default;
+$font-style   : normal                             !default;
+$font-variant : normal                             !default;
