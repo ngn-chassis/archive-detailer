@@ -26,6 +26,14 @@
         }
       }
 
+      .group {
+        @include block-layout-rules($has-padding: false);
+
+        .field {
+          margin-bottom: 0;
+        }
+      }
+
       .field {
         @include block-layout-rules($has-padding: false);
 
