@@ -10,8 +10,6 @@ $tile-gutter-color    : $root-bg-color    !default;
 
 $text-color           : rgba(68,68,68,1)  !default;
 
-$icon-size-multiplier : $type-scale-ratio !default;
-
 
 // :: Links --------------------------------------------------------------------
 
@@ -169,6 +167,11 @@ $disabled-default-button-bg-color        : transparentize($default-button-bg-col
 $disabled-default-button-border-color    : transparentize($default-button-border-color, 0.618) !default;
 
 
+// :: Icons --------------------------------------------------------------------
+$icon-color           : $text-color       !default;
+$icon-size-multiplier : $type-scale-ratio !default;
+
+
 // :: Tags ---------------------------------------------------------------------
 
 
@@ -191,27 +194,34 @@ $modal-vertical-alignment : center !default;
 
 // :: Forms --------------------------------------------------------------------
 
-$form-fields-inset            : true             !default;
-$form-fields-inset-box-shadow : inset .0236em .0618em .382em .0382em rgba($black, .118) !default;
+$form-fields-inset              : true             !default;
+$form-fields-inset-box-shadow   : inset .0236em .0618em .382em .0382em rgba($black, .118) !default;
 
-$form-fields-rounded-corners  : true             !default;
-$form-fields-border-radius    : $default-border-radius !default;
+$form-fields-rounded-corners    : true             !default;
+$form-fields-border-radius      : $default-border-radius !default;
 
-$form-legend-fonts            : $font-family     !default;
-$form-legend-font-weight      : $bold            !default;
-$form-legend-font-style       : normal           !default;
-$form-legend-font-variant     : normal           !default;
-$form-legend-text-color       : $text-color      !default;
-$form-legend-text-decoration  : none             !default;
-$form-legend-text-transform   : none             !default;
+$form-legend-fonts              : $font-family     !default;
+$form-legend-font-weight        : $bold            !default;
+$form-legend-font-style         : normal           !default;
+$form-legend-font-variant       : normal           !default;
+$form-legend-text-color         : $text-color      !default;
+$form-legend-text-decoration    : none             !default;
+$form-legend-text-transform     : none             !default;
 
-$textfield-fonts              : $font-family     !default;
-$textfield-font-weight        : $regular         !default;
-$textfield-font-style         : normal           !default;
-$textfield-font-variant       : normal           !default;
-$textfield-text-color         : $text-color      !default;
-$textfield-text-decoration    : none             !default;
-$textfield-text-transform     : none             !default;
+$textfield-fonts                : $font-family     !default;
+$textfield-font-weight          : $regular         !default;
+$textfield-font-style           : normal           !default;
+$textfield-font-variant         : normal           !default;
+$textfield-text-color           : $text-color      !default;
+$textfield-text-decoration      : none             !default;
+$textfield-text-transform       : none             !default;
 
-$textfield-border-color       : rgb(188,189,193) !default;
-$textfield-focus-ring-color   : $blue            !default;
+$textfield-border-color         : rgb(188,189,193) !default;
+$textfield-focus-ring-color     : $blue            !default;
+
+$browser-field-button-bg-color  : $grey-n02        !default;
+$browser-field-button-text-color: $text-color      !default;
+
+$visited-browser-field-button-bg-color : $browser-field-button-bg-color !default;
+$hover-browser-field-button-bg-color   : lighten($browser-field-button-bg-color, 3%) !default;
+$active-browser-field-button-bg-color  : darken($browser-field-button-bg-color, 2%) !default;

@@ -74,6 +74,52 @@
           *:last-child {
             margin-right: 0;
           }
+
+          .browser {
+            @include inline-layout-rules($has-padding: false);
+
+            // Overwrite box-model established in the mixin above
+            display: flex;
+            flex: 1 1 auto;
+            margin-bottom: 0;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            input:not([type="radio"]):not([type="checkbox"]) {
+              flex: 1  auto;
+              margin-right: 0;
+              border-radius: $default-border-radius 0 0 $default-border-radius;
+            }
+
+            .button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              border-radius: 0 $default-border-radius $default-border-radius 0;
+              background: $browser-field-button-bg-color;
+              color: $browser-field-button-text-color;
+              box-shadow:
+                inset -1px 0 0 0 $textfield-border-color,
+                inset 0 1px 0 0 $textfield-border-color,
+                inset 0 -1px 0 0 $textfield-border-color
+              ;
+
+              &:visited {
+                background: $visited-browser-field-button-bg-color;
+              }
+
+              &:hover {
+                background: $hover-browser-field-button-bg-color;
+              }
+
+              &:active {
+                background: $active-browser-field-button-bg-color;
+              }
+            }
+          }
         }
       }
 
