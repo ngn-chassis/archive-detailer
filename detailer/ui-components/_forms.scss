@@ -224,7 +224,7 @@
     }
 
     button {
-    	@extend %button;
+    	@extend %chassis-button;
 
       font: {
         family: $form-fields-fonts;

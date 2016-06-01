@@ -70,7 +70,7 @@ $default-button-defs : ();
   );
 
   .chassis .button {
-    @extend %button;
+    @extend %chassis-button;
   }
 
 }
@@ -277,6 +277,6 @@ $default-button-defs : ();
   }
 }
 
-%button {
+%chassis-button {
   @include chassis-button($default-button-defs);
 }
