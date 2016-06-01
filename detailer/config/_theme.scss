@@ -120,6 +120,13 @@ $default-button-border-thickness         : 0px                         !default;
 $default-button-border-color             : transparent                 !default;
 $default-button-border-radius            : $default-border-radius      !default;
 
+$default-button-box-shadow               : ()                          !default;
+// Example:
+// $default-button-box-shadow : (
+// 	3px 3px 3px 3px black,
+// 	-3px -3px 3px 3px red
+// );
+
 $visited-default-button-fonts            : $font-family                !default;
 $visited-default-button-text-color       : $default-button-text-color  !default;
 $visited-default-button-font-weight      : $regular                    !default;
@@ -133,6 +140,8 @@ $visited-default-button-bg-color         : $default-button-bg-color    !default;
 $visited-default-button-has-border       : false                       !default;
 $visited-default-button-border-thickness : 0px                         !default;
 $visited-default-button-border-color     : transparent                 !default;
+
+$visited-default-button-box-shadow       : ()                          !default;
 
 $hover-default-button-fonts              : $font-family                !default;
 $hover-default-button-text-color         : $default-button-text-color  !default;
@@ -148,6 +157,8 @@ $hover-default-button-has-border         : false                       !default;
 $hover-default-button-border-thickness   : 0px                         !default;
 $hover-default-button-border-color       : transparent                 !default;
 
+$hover-default-button-box-shadow         : ()                          !default;
+
 $active-default-button-fonts             : $font-family                !default;
 $active-default-button-text-color        : $default-button-text-color  !default;
 $active-default-button-font-weight       : $regular                    !default;
@@ -162,9 +173,13 @@ $active-default-button-has-border        : false                       !default;
 $active-default-button-border-thickness  : 0px                         !default;
 $active-default-button-border-color      : transparent                 !default;
 
+$active-default-button-box-shadow        : ()                          !default;
+
 $disabled-default-button-text-color      : $default-button-text-color  !default;
 $disabled-default-button-bg-color        : transparentize($default-button-bg-color, 0.618)     !default;
 $disabled-default-button-border-color    : transparentize($default-button-border-color, 0.618) !default;
+
+$disabled-default-button-box-shadow      : ()                          !default;
 
 
 // :: Icons --------------------------------------------------------------------
@@ -194,34 +209,39 @@ $modal-vertical-alignment : center !default;
 
 // :: Forms --------------------------------------------------------------------
 
-$form-fields-inset              : true             !default;
-$form-fields-inset-box-shadow   : inset .0236em .0618em .382em .0382em rgba($black, .118) !default;
+$form-mobile-layout-breakpoint    : small !default;
 
-$form-fields-rounded-corners    : true             !default;
-$form-fields-border-radius      : $default-border-radius !default;
+$form-fields-border-radius        : $default-border-radius !default;
 
-$form-legend-fonts              : $font-family     !default;
-$form-legend-font-weight        : $bold            !default;
-$form-legend-font-style         : normal           !default;
-$form-legend-font-variant       : normal           !default;
-$form-legend-text-color         : $text-color      !default;
-$form-legend-text-decoration    : none             !default;
-$form-legend-text-transform     : none             !default;
+$form-legend-fonts                : $font-family     !default;
+$form-legend-font-weight          : $bold            !default;
+$form-legend-font-style           : normal           !default;
+$form-legend-font-variant         : normal           !default;
+$form-legend-text-color           : $text-color      !default;
+$form-legend-text-decoration      : none             !default;
+$form-legend-text-transform       : none             !default;
 
-$textfield-fonts                : $font-family     !default;
-$textfield-font-weight          : $regular         !default;
-$textfield-font-style           : normal           !default;
-$textfield-font-variant         : normal           !default;
-$textfield-text-color           : $text-color      !default;
-$textfield-text-decoration      : none             !default;
-$textfield-text-transform       : none             !default;
+$form-fields-fonts                : $font-family     !default;
+$form-fields-font-weight          : $regular         !default;
+$form-fields-font-style           : normal           !default;
+$form-fields-font-variant         : normal           !default;
+$form-fields-text-color           : $text-color      !default;
+$form-fields-text-decoration      : none             !default;
+$form-fields-text-transform       : none             !default;
 
-$textfield-border-color         : rgb(188,189,193) !default;
-$textfield-focus-ring-color     : $blue            !default;
+$form-fields-border-color         : rgb(188,189,193) !default;
+$form-fields-focus-ring-color     : $blue            !default;
 
-$browser-field-button-bg-color  : $grey-n02        !default;
-$browser-field-button-text-color: $text-color      !default;
+$browser-field-button-bg-color    : $grey-n02        !default;
+$browser-field-button-text-color  : $text-color      !default;
+
+$form-fields-box-shadow   : (
+	inset .0236em .0618em .382em .0382em rgba($black, .118),
+	inset 0 0 0 1px $form-fields-border-color
+) !default;
 
 $visited-browser-field-button-bg-color : $browser-field-button-bg-color !default;
 $hover-browser-field-button-bg-color   : lighten($browser-field-button-bg-color, 3%) !default;
 $active-browser-field-button-bg-color  : darken($browser-field-button-bg-color, 2%) !default;
+
+$textarea-resize : none !default;

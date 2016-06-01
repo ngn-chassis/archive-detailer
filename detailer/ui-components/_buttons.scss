@@ -7,13 +7,14 @@ $default-button-defs : ();
 
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
   $default-button-defs : (
-    default: (
+    default: ( // @required
       bg-color: $default-button-bg-color,
       text-color: $default-button-text-color,
       border-radius: $default-button-border-radius,
       has-border: $default-button-has-border,
       border-color: $default-button-border-color,
       border-thickness: $default-button-border-thickness,
+      box-shadow: $default-button-box-shadow,
       font-family: $default-button-fonts,
       font-weight: $default-button-font-weight,
       font-style: $default-button-font-style,
@@ -73,133 +74,202 @@ $default-button-defs : ();
 
 }
 
-@mixin button-pseudo-class($type, $settings) {
-  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
-    $default: map-get($settings, default);
-    $defs: map-get($settings, $type);
-
-    @if map-get($defs, bg-color) != map-get($default, bg-color) {
-      background: map-get($defs, bg-color);
+@mixin button-pseudo-class-rule($property, $default-settings, $custom-settings, $key, $default-value) {
+  @if map-has-key($custom-settings, $key) {
+    @if map-get($custom-settings, $key) != map-get($default-settings, $key) {
+      #{$property}: map-get($custom-settings, $key);
     }
-
-    @if map-get($defs, has-border) != map-get($default, has-border) {
-      @if map-get($defs, has-border) {
-        @if map-get($defs, border-thickness) or map-get($defs, border-color) {
-          box-shadow: inset 0 0 0 map-get($defs, border-thickness) map-get($defs, border-color);
-        }
-      } @else {
-        box-shadow: none;
-      }
-    }
-
-    font: {
-      @if map-get($defs, fonts) != map-get($default, fonts) {
-        family: map-get($defs, fonts);
-      }
-      @if map-get($defs, font-weight) != map-get($default, font-weight) {
-        weight: map-get($defs, font-weight);
-      }
-      @if map-get($defs, font-style) != map-get($default, font-style) {
-        style: map-get($defs, font-style);
-      }
-      @if map-get($defs, font-variant) != map-get($default, font-variant) {
-        variant: map-get($defs, font-variant);
-      }
-    }
-
-    text: {
-      @if map-get($defs, text-decoration) != map-get($default, text-decoration) {
-        decoration: map-get($defs, text-decoration);
-      }
-      @if map-get($defs, text-transform) != map-get($default, text-transform) {
-        transform: map-get($defs, text-transform);
-      }
-    }
-
-    @if map-get($defs, text-color) != map-get($default, text-color) {
-      color: map-get($defs, text-color);
-    }
+  } @else {
+    #{$property}: $default-value;
   }
 }
 
+@mixin button-default-rule($property, $settings, $key, $default-value) {
+  @if map-has-key($settings, $key) {
+    #{$property}: map-get($settings, $key);
+  } @else {
+    #{$property}: $default-value;
+  }
+}
 
-@mixin button-styles($settings) {
+@mixin button-box-shadow($defs, $default-border-thickness, $default-border-color, $default-box-shadow) {
+  $button-border-thickness : 0;
+  @if map-has-key($defs, border-thickness) {
+    $button-border-thickness : map-get($defs, border-thickness);
+  } @else {
+    $button-border-thickness : $default-border-thickness;
+  }
+  
+  $button-border-color : transparent;
+  @if map-has-key($defs, border-color) {
+    $button-border-color : map-get($defs, border-color);
+  } @else {
+    $button-border-color : $default-border-color;
+  }
+  
+  @if map-get($defs, has-border) {
+    @if map-has-key($defs, box-shadow) {
+      box-shadow: join(map-get($defs, box-shadow), (inset 0 0 0 $button-border-thickness $button-border-color), comma);
+    } @else {
+      box-shadow: inset 0 0 0 $button-border-thickness $button-border-color;
+    }
+  }
+  
+  @if map-has-key($defs, box-shadow) {
+    box-shadow: map-get($defs, box-shadow);
+  } @else {
+    box-shadow: $default-box-shadow;
+  }
+}
+
+/**
+ * @mixin chassis-button
+ * @param {map} $settings
+ * $settings MUST contain a "default" map
+ */
+@mixin chassis-button($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     $default: map-get($settings, default);
+    $visited: map-get($settings, visited);
+    $hover: map-get($settings, hover);
+    $active: map-get($settings, active);
     $disabled: map-get($settings, disabled);
 
     display: inline-block;
 
     // Setup default padding, margin and line-height rules
     @include inline-layout-rules(root);
-
-    background: map-get($default, bg-color);
-    border-radius: map-get($default, border-radius);
+    
+    @if map-has-key($settings, default) {
+      @include button-default-rule(background, $default, bg-color, $default-button-bg-color);
+      @include button-default-rule(border-radius, $default, border-radius, $default-button-border-radius);    
+    }
 
     border: none;
     outline: none;
-
-    @if map-get($default, has-border) {
-      box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($default, border-color);
-    } @else {
-      box-shadow: none;
+    
+    @if map-has-key($settings, default) {
+      @include button-box-shadow($default, $default-button-border-thickness, $default-button-border-color, $default-button-box-shadow);
     }
 
     vertical-align: middle;
-
-    font: {
-      @if map-get($default, font-family) != $font-family {
-        family: map-get($default, font-family);
-      }
-      @if map-get($default, font-weight) != $font-weight {
-        weight: map-get($default, font-weight);
-      }
-      @if map-get($default, font-style) != $font-style {
-        style: map-get($default, font-style);
-      }
-      @if map-get($default, font-variant) != $font-variant {
-        variant: map-get($default, font-variant);
+    
+    @if map-has-key($settings, default) {
+      font: {
+        @if map-get($default, font-family) != $font-family {
+          @include button-default-rule(family, $default, font-family, $default-button-fonts);
+        }
+        @if map-get($default, font-weight) != $font-weight {
+          @include button-default-rule(weight, $default, font-weight, $default-button-font-weight);
+        }
+        @if map-get($default, font-style) != $font-style {
+          @include button-default-rule(style, $default, font-style, $default-button-font-style);
+        }
+        @if map-get($default, font-variant) != $font-variant {
+          @include button-default-rule(variant, $default, font-variant, $default-button-font-variant);
+        }
       }
     }
 
     text: {
       align: center;
-      decoration: map-get($default, text-decoration);
-      transform: map-get($default, text-transform);
+      
+      @if map-has-key($settings, default) {
+        @include button-default-rule(decoration, $default, text-decoration, $default-button-text-decoration);
+        @include button-default-rule(transform, $default, text-transform, $default-button-text-transform);
+      }
     }
-
-    color: map-get($default, text-color);
+    
+    @if map-has-key($settings, default) {
+      @include button-default-rule(color, $default, text-color, $default-button-text-color);
+    }
 
     cursor: pointer;
 
     @extend %disable-text-selection;
 
     // Ensure overwrite of <a> styles
-    &:link {
-      color: map-get($default, text-color);
-    }
-
-    &:visited {
-      @include button-pseudo-class(visited, $settings);
-    }
-
-    &:hover {
-      @include button-pseudo-class(hover, $settings);
-    }
-
-    &:active {
-      @include button-pseudo-class(active, $settings);
-    }
-
-    &.disabled {
-      background: map-get($disabled, bg-color);
-
-      @if map-get($default, has-border) {
-        box-shadow: inset 0 0 0 map-get($default, border-thickness) map-get($disabled, border-color);
+    @if map-has-key($settings, default) {
+      &:link {
+        @include button-default-rule(color, $default, text-color, $default-button-text-color);
       }
+    }
+    
+    @if map-has-key($settings, visited) {
+      &:visited {
+        @include button-pseudo-class-rule(background, $default, $visited, bg-color, $visited-default-button-bg-color);
+        
+        @include button-box-shadow($visited, $visited-default-button-border-thickness, $visited-default-button-border-color, $visited-default-button-box-shadow);
 
-      color: map-get($disabled, text-color);
-      @extend %disable-pointer-events;
+        font: {
+          @include button-pseudo-class-rule(family, $default, $visited, font-family, $visited-default-button-fonts);
+          @include button-pseudo-class-rule(weight, $default, $visited, font-weight, $visited-default-button-font-weight);
+          @include button-pseudo-class-rule(style, $default, $visited, font-style, $visited-default-button-font-style);
+          @include button-pseudo-class-rule(variant, $default, $visited, font-variant, $visited-default-button-font-variant);
+        }
+        
+        text: {
+          @include button-pseudo-class-rule(decoration, $default, $visited, text-decoration, $visited-default-button-text-decoration);
+          @include button-pseudo-class-rule(transform, $default, $visited, text-transform, $visited-default-button-text-transform);
+        }
+        
+        @include button-pseudo-class-rule(color, $default, $visited, text-color, $visited-default-button-text-color);
+      }
+    }
+    
+    @if map-has-key($settings, hover) {
+      &:hover {
+        @include button-pseudo-class-rule(background, $default, $hover, bg-color, $hover-default-button-bg-color);
+        
+        @include button-box-shadow($hover, $hover-default-button-border-thickness, $hover-default-button-border-color, $hover-default-button-box-shadow);
+
+        font: {
+          @include button-pseudo-class-rule(family, $default, $hover, font-family, $hover-default-button-fonts);
+          @include button-pseudo-class-rule(weight, $default, $hover, font-weight, $hover-default-button-font-weight);
+          @include button-pseudo-class-rule(style, $default, $hover, font-style, $hover-default-button-font-style);
+          @include button-pseudo-class-rule(variant, $default, $hover, font-variant, $hover-default-button-font-variant);
+        }
+        
+        text: {
+          @include button-pseudo-class-rule(decoration, $default, $hover, text-decoration, $hover-default-button-text-decoration);
+          @include button-pseudo-class-rule(transform, $default, $hover, text-transform, $hover-default-button-text-transform);
+        }
+        
+        @include button-pseudo-class-rule(color, $default, $hover, text-color, $hover-default-button-text-color);
+      }
+    }
+    
+    @if map-has-key($settings, active) {
+      &:active {
+        @include button-pseudo-class-rule(background, $default, $active, bg-color, $active-default-button-bg-color);
+        
+        @include button-box-shadow($active, $active-default-button-border-thickness, $active-default-button-border-color, $active-default-button-box-shadow);
+
+        font: {
+          @include button-pseudo-class-rule(family, $default, $active, font-family, $active-default-button-fonts);
+          @include button-pseudo-class-rule(weight, $default, $active, font-weight, $active-default-button-font-weight);
+          @include button-pseudo-class-rule(style, $default, $active, font-style, $active-default-button-font-style);
+          @include button-pseudo-class-rule(variant, $default, $active, font-variant, $active-default-button-font-variant);
+        }
+        
+        text: {
+          @include button-pseudo-class-rule(decoration, $default, $active, text-decoration, $active-default-button-text-decoration);
+          @include button-pseudo-class-rule(transform, $default, $active, text-transform, $active-default-button-text-transform);
+        }
+        
+        @include button-pseudo-class-rule(color, $default, $active, text-color, $active-default-button-text-color);
+      }
+    }
+    
+    @if map-has-key($settings, disabled) {
+      &.disabled {
+        @include button-pseudo-class-rule(background, $default, $disabled, bg-color, $disabled-default-button-bg-color);
+        
+        @include button-box-shadow($default, $default-button-border-thickness, $disabled-default-button-border-color, $disabled-default-button-box-shadow);
+        
+        @include button-pseudo-class-rule(color, $default, $disabled, text-color, $disabled-default-button-text-color);
+        @extend %disable-pointer-events;
+      }
     }
 
     &:focus {
@@ -209,5 +279,5 @@ $default-button-defs : ();
 }
 
 %button {
-  @include button-styles($default-button-defs);
+  @include chassis-button($default-button-defs);
 }
