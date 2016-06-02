@@ -175,11 +175,7 @@ $active-default-button-border-color      : transparent                 !default;
 
 $active-default-button-box-shadow        : ()                          !default;
 
-$disabled-default-button-text-color      : $default-button-text-color  !default;
-$disabled-default-button-bg-color        : transparentize($default-button-bg-color, 0.618)     !default;
-$disabled-default-button-border-color    : transparentize($default-button-border-color, 0.618) !default;
-
-$disabled-default-button-box-shadow      : ()                          !default;
+$disabled-default-button-opacity         : .382                        !default;
 
 
 // :: Icons --------------------------------------------------------------------
