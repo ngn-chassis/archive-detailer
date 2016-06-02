@@ -2,7 +2,7 @@
 // UI Components
 
 // :: Flex Tiles
-// Creates a grid of equally-sizes, fluid and responsive tiles.
+// Creates a grid of equally-sized, fluid and responsive tiles.
 
 // Usage:
 // Include the 'tiles' mixin on your containing element
@@ -42,6 +42,9 @@
 
         // Calculate percentage width of columns
         flex: 0 0 ((100 / $columns) * 1%);
+        
+        // Prevent flex-wrap bugs in IE11
+        max-width: ((100 / $columns) * 1%);
 
         // Apply default padding
         // will be overwritten later for tiles on the outside edges of the grid
