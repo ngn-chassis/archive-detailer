@@ -192,6 +192,7 @@
     label {
       display: block;
       cursor: pointer;
+      font-weight: $semibold;
     }
 
     input:not([type='checkbox']):not([type='radio']),

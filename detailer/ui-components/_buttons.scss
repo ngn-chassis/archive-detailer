@@ -120,9 +120,9 @@ $default-button-defs : ();
   }
   
   @if map-has-key($defs, box-shadow) {
-    $final-box-shadow: join($final-box-shadow, map-get($defs, box-shadow));
+    $final-box-shadow: append($final-box-shadow, map-get($defs, box-shadow));
   } @else {
-    $final-box-shadow: join($final-box-shadow, $default-box-shadow);
+    $final-box-shadow: append($final-box-shadow, $default-box-shadow);
   }
   
   box-shadow: $final-box-shadow;
