@@ -105,6 +105,8 @@ $h6-decoration    : none              !default;
 
 // :: Buttons ------------------------------------------------------------------
 
+$button-font-size-multiplier             : 1                           !default;
+
 $default-button-fonts                    : $font-family                !default;
 $default-button-text-color               : rgb(255,255,255)            !default;
 $default-button-font-weight              : $regular                    !default;

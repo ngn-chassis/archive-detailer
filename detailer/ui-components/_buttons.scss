@@ -8,6 +8,7 @@ $default-button-defs : ();
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
   $default-button-defs : (
     custom-visited-style: false,
+    font-size-multiplier: $button-font-size-multiplier,
     default: ( // @required
       bg-color: $default-button-bg-color,
       text-color: $default-button-text-color,
@@ -183,6 +184,17 @@ $default-button-defs : ();
       }
       @if map-get($default, font-variant) != $font-variant {
         @include button-default-rule(variant, $default, font-variant, $default-button-font-variant);
+      }
+      @if map-has-key($settings, font-size-multiplier) {
+        @if map-get($settings, font-size-multiplier) != $button-font-size-multiplier {
+          @if map-get($settings, font-size-multiplier) != 1 {
+            size: map-get($settings, font-size-multiplier) * 1em; 
+          }
+        } @else {
+          @if $button-font-size-multiplier != 1 {
+            size: $button-font-size-multiplier * 1em; 
+          }
+        }
       }
     }
 
