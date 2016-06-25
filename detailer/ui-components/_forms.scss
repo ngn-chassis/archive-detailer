@@ -6,11 +6,11 @@
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
 
   .chassis {
-    
+
     form {
-      
+
       // :: Resets ---------------------------------------------------------------
-      
+
       > *:last-child,
       fieldset > *:last-child {
         margin-bottom: 0;
@@ -28,7 +28,7 @@
           transform: $form-legend-text-transform;
         }
       }
-      
+
       // Container for all form elements
       .field {
         @include block-layout-rules($has-padding: false);
@@ -49,15 +49,15 @@
               margin-right: 0;
             }
           }
-          
+
           // IE11 overrides
-          *::-ms-backdrop, 
-          input:not([type='checkbox']):not([type='radio']) { 
+          *::-ms-backdrop,
+          input:not([type='checkbox']):not([type='radio']) {
             min-height: 2.61803em;
           }
-          
-          *::-ms-backdrop, 
-          textarea { 
+
+          *::-ms-backdrop,
+          textarea {
             min-height: 7.85409em;
           }
 
@@ -88,7 +88,11 @@
             input:not([type="radio"]):not([type="checkbox"]) {
               flex: 1  auto;
               margin-right: 0;
-              border-radius: $form-fields-border-radius 0 0 $form-fields-border-radius;
+              border-radius: 0;
+
+              &:first-child {
+                border-radius: $form-fields-border-radius 0 0 $form-fields-border-radius;
+              }
             }
 
             .button {
@@ -120,7 +124,7 @@
           }
         }
       }
-      
+
       // Container for collections of checkboxes of radio buttons
       .group {
         @include block-layout-rules($has-padding: false);
@@ -129,7 +133,7 @@
           margin-bottom: 0;
         }
       }
-      
+
       // Container for multi-column form layouts
       .row {
         display: flex;
@@ -152,7 +156,7 @@
             margin-bottom: 0;
           }
         }
-        
+
         @if map-has-key($viewport-width-ranges, $form-mobile-layout-breakpoint) {
           @include above-viewport-width($form-mobile-layout-breakpoint) {
             flex-direction: row;
@@ -185,7 +189,7 @@
       }
 
     }
-    
+
     // :: Form Elements --------------------------------------------------------
     // These rulesets are kept separate from the "form" context so
     // they can be used independently of <form> elements
@@ -220,10 +224,10 @@
 
     textarea {
       @include inline-layout-rules($multi-line: true);
-    	
+
       // Turn off scroll bars in IE unless needed
     	overflow: auto;
-      
+
       vertical-align: top;
       resize: $textarea-resize;
     }
