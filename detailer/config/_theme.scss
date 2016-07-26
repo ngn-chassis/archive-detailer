@@ -238,6 +238,10 @@ $form-fields-box-shadow   : (
 	inset 0 0 0 1px $form-fields-border-color
 ) !default;
 
+$form-fields-focus-box-shadow : (
+	inset 0 0 0 1px $form-fields-focus-ring-color
+) !default;
+
 $visited-browser-field-button-bg-color : $browser-field-button-bg-color !default;
 $hover-browser-field-button-bg-color   : lighten($browser-field-button-bg-color, 3%) !default;
 $active-browser-field-button-bg-color  : darken($browser-field-button-bg-color, 2%) !default;

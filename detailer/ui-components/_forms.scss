@@ -214,7 +214,7 @@
 
       &:focus {
         outline: 0;
-        box-shadow: inset 0 0 0 1px $form-fields-focus-ring-color;
+        box-shadow: $form-fields-focus-box-shadow;
       }
     }
 
