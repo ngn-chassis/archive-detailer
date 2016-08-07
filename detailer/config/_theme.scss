@@ -54,7 +54,6 @@ $disabled-link-decoration : initial                  !default;
 
 $h1-fonts         : $font-family      !default;
 $h1-weight        : $bold             !default;
-$h1-color         : $text-color       !default;
 $h1-style         : normal            !default;
 $h1-variant       : normal            !default;
 $h1-transform     : none              !default;
@@ -62,7 +61,6 @@ $h1-decoration    : none              !default;
 
 $h2-fonts         : $font-family      !default;
 $h2-weight        : $bold             !default;
-$h2-color         : $text-color       !default;
 $h2-style         : normal            !default;
 $h2-variant       : normal            !default;
 $h2-transform     : none              !default;
@@ -70,31 +68,27 @@ $h2-decoration    : none              !default;
 
 $h3-fonts         : $font-family      !default;
 $h3-weight        : $bold             !default;
-$h3-color         : $text-color       !default;
 $h3-style         : normal            !default;
 $h3-variant       : normal            !default;
 $h3-transform     : none              !default;
 $h3-decoration    : none              !default;
 
 $h4-fonts         : $font-family      !default;
-$h4-weight        : $semibold             !default;
-$h4-color         : $text-color       !default;
+$h4-weight        : $semibold         !default;
 $h4-style         : normal            !default;
 $h4-variant       : normal            !default;
 $h4-transform     : none              !default;
 $h4-decoration    : none              !default;
 
 $h5-fonts         : $font-family      !default;
-$h5-weight        : $semibold             !default;
-$h5-color         : $text-color       !default;
+$h5-weight        : $semibold         !default;
 $h5-style         : normal            !default;
 $h5-variant       : normal            !default;
 $h5-transform     : none              !default;
 $h5-decoration    : none              !default;
 
 $h6-fonts         : $font-family      !default;
-$h6-weight        : $semibold             !default;
-$h6-color         : $text-color       !default;
+$h6-weight        : $semibold         !default;
 $h6-style         : normal            !default;
 $h6-variant       : normal            !default;
 $h6-transform     : none              !default;
