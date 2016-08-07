@@ -174,11 +174,6 @@ $default-button-defs : ();
 
     @extend %disable-text-selection;
 
-    // Ensure overwrite of <a> styles
-    &:link {
-      color: map-get($default, text-color);
-    }
-
     &:visited {
       @include button-pseudo-class(visited, $settings);
     }
