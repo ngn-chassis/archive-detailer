@@ -1,5 +1,7 @@
 // Use to import all Detailer components at once
 
+@import 'detailer/ui-components/typography'; // Must be first!
+
 @import 'detailer/ui-components/buttons';
 @import 'detailer/ui-components/button-bars';
 @import 'detailer/ui-components/forms';
