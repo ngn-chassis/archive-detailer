@@ -1,7 +1,7 @@
 // NGN Chassis
 // UI Components
 
-// :: Screen Overlay
+// :: Modal Windows
 
 $default-modal-defs : ();
 
@@ -18,14 +18,14 @@ $default-modal-defs : ();
 
 }
 
-@mixin modal-styles($settings) {
+@mixin chassis-modal($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     align-self: map-get($settings, vertical-alignment);
-
+    
+    width: 61.8vw;
     min-width: $ui-min-width;
-    max-width: calc(#{$ui-max-width} - #{$ui-gutter});
+    max-width: calc(#{$ui-max-width} - #{$ui-gutter * 2});
 
-    min-height: 38.2vh;
     max-height: 100vh;
 
     overflow: auto;
@@ -36,5 +36,5 @@ $default-modal-defs : ();
 }
 
 %modal {
-  @include modal-styles($default-modal-defs);
+  @include chassis-modal($default-modal-defs);
 }

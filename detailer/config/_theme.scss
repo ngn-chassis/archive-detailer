@@ -5,8 +5,9 @@
 
 // :: Global -------------------------------------------------------------------
 
-$text-color           : rgba(68,68,68,1)  !default;
-$tile-gutter-color    : transparent    !default;
+$root-bg-color        : $white                       !default;
+$text-color           : rgba(68,68,68,1)             !default;
+$tile-gutter-color    : transparent                  !default;
 
 
 // :: Links --------------------------------------------------------------------
@@ -96,9 +97,6 @@ $h6-decoration    : none              !default;
 
 
 // :: Buttons ------------------------------------------------------------------
-
-$button-font-size-multiplier             : 1                           !default;
-
 $default-button-fonts                    : $font-family                !default;
 $default-button-text-color               : rgb(255,255,255)            !default;
 $default-button-font-weight              : $regular                    !default;
@@ -178,6 +176,27 @@ $icon-size-multiplier : $type-scale-ratio !default;
 
 
 // :: Tags ---------------------------------------------------------------------
+$default-tag-fonts                       : $font-family                !default;
+$default-tag-text-color                  : rgb(255,255,255)            !default;
+$default-tag-font-weight                 : $regular                    !default;
+$default-tag-font-style                  : normal                      !default;
+$default-tag-font-variant                : normal                      !default;
+$default-tag-text-decoration             : none                        !default;
+$default-tag-text-transform              : none                        !default;
+
+$default-tag-bg-color                    : $grey-n05                   !default;
+
+$default-tag-has-border                  : false                       !default;
+$default-tag-border-thickness            : 0px                         !default;
+$default-tag-border-color                : transparent                 !default;
+$default-tag-border-radius               : $default-border-radius      !default;
+
+$default-tag-box-shadow                  : ()                          !default;
+// Example:
+// $default-tag-box-shadow : (
+// 	3px 3px 3px 3px black,
+// 	-3px -3px 3px 3px red
+// );
 
 
 // :: Overlay ------------------------------------------------------------------

@@ -7,6 +7,12 @@
 @import 'detailer/config/theme';
 @import 'detailer/config/z-index';
 
+@import 'detailer/utilities/mixins';
+
 // Used to disable detailer components if they are included without the
 // Detailer core plugin
 $CHASSIS_DETAILER_INCLUDED: true;
+
+html {
+	background: $root-bg-color;
+}

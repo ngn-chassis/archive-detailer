@@ -36,8 +36,12 @@ $default-overlay-defs : ();
 
     height: 100vh;
     width: 100vw;
-
-    padding: 6.18vh 19.1vw;
+    
+    min-width: 100vw;
+    max-width: 100vw;
+    
+    min-height: 100vh;
+    max-height: 100vh;
 
     background-color: rgba(map-get($settings, bg-color), map-get($settings, bg-opacity));
     background-image: map-get($settings, bg-image);
