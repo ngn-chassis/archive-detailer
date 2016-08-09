@@ -66,25 +66,25 @@
 @mixin chassis-generate-box-shadow($defs, $default-border-thickness, $default-border-color, $default-box-shadow) {
   $final-box-shadow: ();
 
-  $button-border-thickness : 0;
-  $button-border-color : transparent;
-  $final-border: (0 0 0 0 transparent);
+  $new-border-thickness : 0;
+  $new-border-color : transparent;
+  $final-border: (inset 0 0 0 $default-border-thickness $default-border-color);
 
   @if map-get($defs, has-border) {
 
     @if map-has-key($defs, border-thickness) {
-      $button-border-thickness : map-get($defs, border-thickness);
+      $new-border-thickness : map-get($defs, border-thickness);
     } @else {
-      $button-border-thickness : $default-border-thickness;
+      $new-border-thickness : $default-border-thickness;
     }
 
     @if map-has-key($defs, border-color) {
-      $button-border-color : map-get($defs, border-color);
+      $new-border-color : map-get($defs, border-color);
     } @else {
-      $button-border-color : $default-border-color;
+      $new-border-color : $default-border-color;
     }
 
-    $final-border: (inset 0 0 0 $button-border-thickness $button-border-color);
+    $final-border: (inset 0 0 0 $new-border-thickness $new-border-color);
   }
 
   @if $final-border != (0 0 0 0 transparent) {
@@ -92,9 +92,9 @@
   }
 
   @if map-has-key($defs, box-shadow) {
-    $final-box-shadow: append($final-box-shadow, map-get($defs, box-shadow));
+    $final-box-shadow: append(map-get($defs, box-shadow), $final-box-shadow);
   } @else {
-    $final-box-shadow: append($final-box-shadow, $default-box-shadow);
+    $final-box-shadow: append($default-box-shadow, $final-box-shadow);
   }
 
   box-shadow: $final-box-shadow;

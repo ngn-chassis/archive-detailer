@@ -34,7 +34,8 @@ $default-tag-defs : ();
 /**
  * @mixin chassis-tag
  * @param {map} $settings
- * $settings MUST contain a "default" map
+ * Map of themable properties
+ * MUST contain a "default" map
  */
 @mixin chassis-tag($settings) {
 	@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
@@ -45,9 +46,8 @@ $default-tag-defs : ();
 		
 		display: inline-block;
 		
-		// Setup default padding, margin and line-height rules
-		@include inline-layout-rules(root);
-		margin-bottom: 0;
+		// Setup default padding and line-height rules
+		@include inline-layout-rules(root, $has-margin: false);
 		
 		@include font-size(small);
 		
