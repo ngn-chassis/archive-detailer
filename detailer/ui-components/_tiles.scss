@@ -1,19 +1,19 @@
 // NGN Chassis
-// UI Components
+// Detailer UI Pack
 
 // :: Flex Tiles
 // Creates a grid of equally-sized, fluid and responsive tiles.
 
-// Usage:
-// Include the 'tiles' mixin on your containing element
-// @param { $columns } int
-// Number of columns in grid
-// @param { $gutter-width } px or ems
-// Amount of space between each tile
-
 // TODO: Add ability to reverse the order of tiles, and display in columns
 // instead of rows.
 
+/**
+ * @mixin tiles
+ * @param {int} $columns
+ * Number of columns in grid
+ * @param {px or em} $gutter-width
+ * Amount of space between tiles
+ */
 @mixin tiles($columns, $gutter-width: 1em) {
 
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
