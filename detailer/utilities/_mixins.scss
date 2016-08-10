@@ -68,9 +68,9 @@
 
   $new-border-thickness : 0;
   $new-border-color : transparent;
-  $final-border: (inset 0 0 0 $default-border-thickness $default-border-color);
+  $final-border: none;
 
-  @if map-get($defs, has-border) {
+  @if map-get($defs, has-border) == true {
 
     @if map-has-key($defs, border-thickness) {
       $new-border-thickness : map-get($defs, border-thickness);
@@ -87,15 +87,13 @@
     $final-border: (inset 0 0 0 $new-border-thickness $new-border-color);
   }
 
-  @if $final-border != (0 0 0 0 transparent) {
+  @if $final-border != none {
     $final-box-shadow: $final-border;
-  }
+  } 
 
   @if map-has-key($defs, box-shadow) {
     $final-box-shadow: append(map-get($defs, box-shadow), $final-box-shadow);
-  } @else {
-    $final-box-shadow: append($default-box-shadow, $final-box-shadow);
   }
-
+  
   box-shadow: $final-box-shadow;
 }
