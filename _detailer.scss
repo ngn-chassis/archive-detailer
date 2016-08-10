@@ -1,8 +1,6 @@
 // NGN Chassis
 // Detailer UI Plugin
 
-@import 'detailer/constants/colors';
-
 @import 'detailer/config/typography';
 @import 'detailer/config/theme';
 @import 'detailer/config/z-index';
@@ -18,7 +16,7 @@ html {
 }
 
 .chassis {
-  font: {
+	font: {
     family: $font-family;
     weight: $regular;
     style: $font-style;
@@ -28,7 +26,7 @@ html {
   }
 
   color: $text-color;
-
+	
   a {
     font: {
       @if $link-fonts != $font-family {
@@ -146,8 +144,8 @@ html {
       @extend %disable-pointer-events;
     }
   }
-
-  h1 {
+	
+	h1 {
     font: {
       @if $h1-fonts != $font-family {
         family: $h1-fonts;
@@ -255,4 +253,5 @@ html {
     text-decoration: $h6-decoration;
   }
 }
+
 
