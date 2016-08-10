@@ -17,7 +17,6 @@
 @mixin tiles($columns, $gutter-width: 1em) {
 
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
-
     // Automatically keep track of numbering
     counter-reset: CHASSIS_FLEX_TILE_COUNTER;
 
