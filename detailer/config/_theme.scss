@@ -10,6 +10,15 @@ $text-color           : rgba(68,68,68,1)             !default;
 $tile-gutter-color    : transparent                  !default;
 
 
+// :: Typography ---------------------------------------------------------------
+
+$font-family : Helvetica, Arial, sans-serif        !default;
+
+$font-weight  : $regular                           !default;
+$font-style   : normal                             !default;
+$font-variant : normal                             !default;
+
+
 // :: Links --------------------------------------------------------------------
 
 $link-fonts               : $font-family             !default;
