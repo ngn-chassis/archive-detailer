@@ -1,6 +1,6 @@
 {
   "name": "chassis-detailer",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "UI component plugins for the Chassis Layout system (chassis-sass).",
   "main": "index.js",
   "scripts": {
