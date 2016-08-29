@@ -8,8 +8,6 @@
   },
   "author": "Graham Butler",
   "license": "BSD-3-Clause",
-  "devDependencies": {
-    "chassis-sass": "0.0.27"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }

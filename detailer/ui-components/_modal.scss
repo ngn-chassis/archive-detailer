@@ -21,7 +21,7 @@ $default-modal-defs : ();
 @mixin chassis-modal($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     align-self: map-get($settings, vertical-alignment);
-    
+
     width: 61.8vw;
     min-width: $ui-min-width;
     max-width: calc(#{$ui-max-width} - #{$ui-gutter * 2});
@@ -29,7 +29,7 @@ $default-modal-defs : ();
     max-height: 100vh;
 
     overflow: auto;
-    z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, modal);
+    z-index: detailer-get-z-index(modal);
 
     background: map-get($settings, bg-color);
   }

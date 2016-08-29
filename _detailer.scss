@@ -1,10 +1,11 @@
 // NGN Chassis
 // Detailer UI Plugin
 
-@import 'detailer/config/theme';
+@import 'detailer/config/default-theme';
 @import 'detailer/config/z-index';
 
 @import 'detailer/utilities/mixins';
+@import 'detailer/utilities/z-index';
 
 // Used to disable detailer components if they are included without the
 // Detailer core plugin
@@ -25,7 +26,7 @@ html {
   }
 
   color: $text-color;
-	
+
   a {
     font: {
       @if $link-fonts != $font-family {
@@ -143,7 +144,7 @@ html {
       @extend %disable-pointer-events;
     }
   }
-	
+
 	h1 {
     font: {
       @if $h1-fonts != $font-family {
@@ -252,5 +253,3 @@ html {
     text-decoration: $h6-decoration;
   }
 }
-
-

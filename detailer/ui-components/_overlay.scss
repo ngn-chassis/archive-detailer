@@ -36,10 +36,10 @@ $default-overlay-defs : ();
 
     height: 100vh;
     width: 100vw;
-    
+
     min-width: 100vw;
     max-width: 100vw;
-    
+
     min-height: 100vh;
     max-height: 100vh;
 
@@ -47,7 +47,7 @@ $default-overlay-defs : ();
     background-image: map-get($settings, bg-image);
     background-blend-mode: map-get($settings, bg-blend-mode);
 
-    z-index: map-get($CHASSIS_Z-INDEX_DEFAULTS, max) - index($z-index-order, overlay);
+    z-index: detailer-get-z-index(overlay);
   }
 }
 
