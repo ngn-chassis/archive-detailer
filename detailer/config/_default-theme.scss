@@ -12,7 +12,7 @@ $tile-gutter-color    : transparent                  !default;
 
 // :: Typography ---------------------------------------------------------------
 
-$font-family : Helvetica, Arial, sans-serif        !default;
+$font-family : 'Malva', Helvetica, Arial, sans-serif  !default;
 
 $font-weight  : $regular                           !default;
 $font-style   : normal                             !default;
@@ -267,3 +267,14 @@ $hover-browser-field-button-bg-color   : lighten($browser-field-button-bg-color,
 $active-browser-field-button-bg-color  : darken($browser-field-button-bg-color, 2%) !default;
 
 $textarea-resize : none !default;
+
+
+// :: Table --------------------------------------------------------------------
+$use-default-table-styles : true !default;
+
+$default-table-border-color : $grey-n02 !default;
+$default-table-border-style : solid;
+
+$default-table-header-border-thickness : 3px !default;
+$default-table-footer-border-thickness : 3px !default;
+$default-table-cell-border-thickness : 1px !default;

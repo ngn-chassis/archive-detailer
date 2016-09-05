@@ -6,7 +6,7 @@
 $default-button-defs : ();
 
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
-  
+
   $default-button-defs : (
     custom-visited-style: false,
     default: ( // @required
