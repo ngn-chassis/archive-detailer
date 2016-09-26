@@ -12,11 +12,11 @@ $tile-gutter-color    : transparent                  !default;
 
 // :: Typography ---------------------------------------------------------------
 
-$font-family : 'Malva', Helvetica, Arial, sans-serif  !default;
+$font-family : Helvetica, Arial, sans-serif          !default;
 
-$font-weight  : $regular                           !default;
-$font-style   : normal                             !default;
-$font-variant : normal                             !default;
+$font-weight  : $regular                             !default;
+$font-style   : normal                               !default;
+$font-variant : normal                               !default;
 
 
 // :: Links --------------------------------------------------------------------
@@ -245,6 +245,8 @@ $form-fields-font-variant         : normal           !default;
 $form-fields-text-color           : $text-color      !default;
 $form-fields-text-decoration      : none             !default;
 $form-fields-text-transform       : none             !default;
+
+$form-fields-placeholder-color    : $grey-n05        !default;
 
 $form-fields-bg-color             : $white           !default;
 $form-fields-border-color         : rgb(188,189,193) !default;
