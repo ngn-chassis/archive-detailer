@@ -1,7 +1,5 @@
-// NGN Chassis
-// UI Components
-
-// :: Buttons
+// NGN Chassis Detailer
+// UI Component: Buttons -------------------------------------------------------
 
 $default-button-defs : ();
 
@@ -74,11 +72,9 @@ $default-button-defs : ();
 
 }
 
-/**
- * @mixin chassis-button
- * @param {map} $settings
- * $settings MUST contain a "default" map
- */
+// @mixin chassis-button
+// @param {map} $settings
+// $settings MUST contain a "default" map
 @mixin chassis-button($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     $default: ();
@@ -175,7 +171,7 @@ $default-button-defs : ();
         @include chassis-default-rule(style, $hover, font-style, $hover-default-button-font-style);
         @include chassis-default-rule(variant, $hover, font-variant, $hover-default-button-font-variant);
       }
-      
+
       text: {
         @include chassis-default-rule(decoration, $hover, text-decoration, $hover-default-button-text-decoration);
         @include chassis-default-rule(transform, $hover, text-transform, $hover-default-button-text-transform);

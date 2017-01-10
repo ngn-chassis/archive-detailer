@@ -1,7 +1,5 @@
-// NGN Chassis
-// UI Components
-
-// :: Screen Overlay
+// NGN Chassis Detailer
+// UI Component: Screen Overlay ------------------------------------------------
 
 $default-overlay-defs : ();
 
@@ -22,6 +20,8 @@ $default-overlay-defs : ();
 
 }
 
+// @mixin overlay-styles
+// @param {map} $settings
 @mixin overlay-styles($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     position: fixed;

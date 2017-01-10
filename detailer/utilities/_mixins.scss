@@ -1,21 +1,17 @@
-// NGN Chassis 
-// Detailer UI Pack
+// NGN Chassis Detailer
+// Utility Mixins --------------------------------------------------------------
 
-// :: Utility Mixins
-
-/**
- * @mixin chassis-default-rule
- * Apply CSS property value if it is specified in passed-in component defs map
- * Otherwise, use default value
- * @param {string} $property
- * CSS Property Name
- * @param {map} $settings
- * Passed-in component defs map
- * @param {string} $key
- * Property key name in $settings map
- * @param {var or string} $default-value
- * Default theme fallback value
- */
+// @mixin chassis-default-rule
+// Apply CSS property value if it is specified in passed-in component defs map
+// Otherwise, use default value
+// @param {string} $property
+// CSS Property Name
+// @param {map} $settings
+// Passed-in component defs map
+// @param {string} $key
+// Property key name in $settings map
+// @param {var or string} $default-value
+// Default theme fallback value
 @mixin chassis-default-rule($property, $settings, $key, $default-value) {
   @if map-has-key($settings, $key) {
     #{$property}: map-get($settings, $key);
@@ -24,19 +20,17 @@
   }
 }
 
-/**
- * @mixin chassis-generate-box-shadow
- * Generate box-shadow property from list and apply border-properties
- * This allows borders to be created using box-shadow instead of border property
- * @param {map} $defs
- * Passed-in component defs map
- * @param {var or string} $default-border-thickness
- * Detailer default theme border-thickness var or custom string
- * @param {var or string} $default-border-color
- * Detailer default theme border-color var or custom string
- * @param {var or string} $default-box-shadow
- * Detailer default theme box-shadow var or custom string
- */
+// @mixin chassis-generate-box-shadow
+// Generate box-shadow property from list and apply border-properties
+// This allows borders to be created using box-shadow instead of border property
+// @param {map} $defs
+// Passed-in component defs map
+// @param {var or string} $default-border-thickness
+// Detailer default theme border-thickness var or custom string
+// @param {var or string} $default-border-color
+// Detailer default theme border-color var or custom string
+// @param {var or string} $default-box-shadow
+// Detailer default theme box-shadow var or custom string
 @mixin chassis-generate-box-shadow($defs, $default-border-thickness, $default-border-color, $default-box-shadow) {
   $final-box-shadow: ();
 
@@ -63,11 +57,11 @@
 
   @if $final-border != none {
     $final-box-shadow: $final-border;
-  } 
+  }
 
   @if map-has-key($defs, box-shadow) {
     $final-box-shadow: append(map-get($defs, box-shadow), $final-box-shadow);
   }
-  
+
   box-shadow: $final-box-shadow;
 }

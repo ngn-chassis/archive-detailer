@@ -1,6 +1,11 @@
 // NGN Chassis Detailer
-// z-index utils
+// z-index utils ---------------------------------------------------------------
 
+// @function detailer-get-z-index
+// @param $key
+// name of ui component to get z-index of
+// defaults: modal, drawer, overlay
+// @returns z-index relative to max
 @function detailer-get-z-index($key) {
   @return chassis-get-z-index(max) - index($z-index-order, $key);
 }

@@ -1,5 +1,5 @@
 // NGN Chassis
-// Detailer UI Plugin
+// Detailer UI Plugin ----------------------------------------------------------
 
 @import 'detailer/config/default-theme';
 @import 'detailer/config/z-index';
@@ -7,8 +7,6 @@
 @import 'detailer/utilities/mixins';
 @import 'detailer/utilities/z-index';
 
-// Used to disable detailer components if they are included without the
-// Detailer core plugin
 $CHASSIS_DETAILER_INCLUDED: true;
 
 html {
@@ -20,9 +18,7 @@ html {
     family: $font-family;
     weight: $regular;
     style: $font-style;
-    style: normal;
     variant: $font-variant;
-    variant: normal;
   }
 
   color: $text-color;
@@ -155,9 +151,7 @@ html {
       variant: $h1-variant;
     }
 
-    @if variable-exists(h1-color) and $h1-color != $text-color {
-      color: $h1-color;
-    }
+		color: $h1-color;
 
     text-transform: $h1-transform;
     text-decoration: $h1-decoration;
@@ -173,9 +167,7 @@ html {
       variant: $h2-variant;
     }
 
-    @if variable-exists(h2-color) and $h2-color != $text-color {
-      color: $h2-color;
-    }
+    color: $h2-color;
 
     text-transform: $h2-transform;
     text-decoration: $h2-decoration;
@@ -191,9 +183,7 @@ html {
       variant: $h3-variant;
     }
 
-    @if variable-exists(h3-color) and $h3-color != $text-color {
-      color: $h3-color;
-    }
+    color: $h3-color;
 
     text-transform: $h3-transform;
     text-decoration: $h3-decoration;
@@ -209,9 +199,7 @@ html {
       variant: $h4-variant;
     }
 
-    @if variable-exists(h4-color) and $h4-color != $text-color {
-      color: $h4-color;
-    }
+    color: $h4-color;
 
     text-transform: $h4-transform;
     text-decoration: $h4-decoration;
@@ -227,9 +215,7 @@ html {
       variant: $h5-variant;
     }
 
-    @if variable-exists(h5-color) and $h5-color != $text-color {
-      color: $h5-color;
-    }
+		color: $h5-color;
 
     text-transform: $h5-transform;
     text-decoration: $h5-decoration;
@@ -245,9 +231,7 @@ html {
       variant: $h6-variant;
     }
 
-    @if variable-exists(h6-color) and $h6-color != $text-color {
-      color: $h6-color;
-    }
+    color: $h6-color;
 
     text-transform: $h6-transform;
     text-decoration: $h6-decoration;

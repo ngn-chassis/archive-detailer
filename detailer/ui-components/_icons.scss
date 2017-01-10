@@ -1,9 +1,14 @@
-svg.icon {
-  width: $icon-size-multiplier * 1em;
-  height: auto;
-  vertical-align: middle;
+// NGN Chassis Detailer
+// UI Component: Icons ---------------------------------------------------------
 
-  fill: $icon-color;
-  // Without this, svgs inside <a> tags will block click events in IE
-	pointer-events: none;
+.icon {
+
+  &svg {
+    width: $icon-size-multiplier * 1em;
+    height: auto;
+    vertical-align: middle;
+
+    fill: $icon-color;
+  	@extend %disable-pointer-events;
+  }
 }

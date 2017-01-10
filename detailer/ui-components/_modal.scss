@@ -1,7 +1,5 @@
-// NGN Chassis
-// UI Components
-
-// :: Modal Windows
+// NGN Chassis Detailer
+// UI Component: Modal Window --------------------------------------------------
 
 $default-modal-defs : ();
 
@@ -18,6 +16,8 @@ $default-modal-defs : ();
 
 }
 
+// @mixin chassis-modal
+// @param {map} $settings
 @mixin chassis-modal($settings) {
   @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
     align-self: map-get($settings, vertical-alignment);

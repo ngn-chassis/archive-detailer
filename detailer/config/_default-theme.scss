@@ -68,6 +68,7 @@ $h1-style         : normal            !default;
 $h1-variant       : normal            !default;
 $h1-transform     : none              !default;
 $h1-decoration    : none              !default;
+$h1-color         : inherit           !default;
 
 $h2-fonts         : $font-family      !default;
 $h2-weight        : $bold             !default;
@@ -75,6 +76,7 @@ $h2-style         : normal            !default;
 $h2-variant       : normal            !default;
 $h2-transform     : none              !default;
 $h2-decoration    : none              !default;
+$h2-color         : inherit           !default;
 
 $h3-fonts         : $font-family      !default;
 $h3-weight        : $bold             !default;
@@ -82,6 +84,7 @@ $h3-style         : normal            !default;
 $h3-variant       : normal            !default;
 $h3-transform     : none              !default;
 $h3-decoration    : none              !default;
+$h3-color         : inherit           !default;
 
 $h4-fonts         : $font-family      !default;
 $h4-weight        : $semibold         !default;
@@ -89,6 +92,7 @@ $h4-style         : normal            !default;
 $h4-variant       : normal            !default;
 $h4-transform     : none              !default;
 $h4-decoration    : none              !default;
+$h4-color         : inherit           !default;
 
 $h5-fonts         : $font-family      !default;
 $h5-weight        : $semibold         !default;
@@ -96,6 +100,7 @@ $h5-style         : normal            !default;
 $h5-variant       : normal            !default;
 $h5-transform     : none              !default;
 $h5-decoration    : none              !default;
+$h5-color         : inherit           !default;
 
 $h6-fonts         : $font-family      !default;
 $h6-weight        : $semibold         !default;
@@ -103,6 +108,7 @@ $h6-style         : normal            !default;
 $h6-variant       : normal            !default;
 $h6-transform     : none              !default;
 $h6-decoration    : none              !default;
+$h6-color         : inherit           !default;
 
 
 // :: Buttons ------------------------------------------------------------------
@@ -229,7 +235,7 @@ $modal-vertical-alignment             : center !default;
 
 $form-mobile-layout-breakpoint    : small !default;
 
-$form-fields-border-radius        : $default-border-radius !default;
+$form-fields-border-radius        : 0 !default;
 
 $form-legend-fonts                : $font-family     !default;
 $form-legend-font-weight          : $bold            !default;
@@ -252,21 +258,33 @@ $form-fields-bg-color             : $white           !default;
 $form-fields-border-color         : rgb(188,189,193) !default;
 $form-fields-focus-ring-color     : $blue            !default;
 
-$browser-field-button-bg-color    : $grey-n02        !default;
-$browser-field-button-text-color  : $text-color      !default;
+$form-fields-button-bg-color    : transparent        !default;
+$form-fields-button-text-color  : $grey-n06          !default;
+$form-fields-button-text-hover-color  : $grey-n08      !default;
+$form-fields-button-icon-color  : $grey-n06          !default;
+$form-fields-button-icon-hover-color  : $grey-n08      !default;
+
 
 $form-fields-box-shadow   : (
-	inset .0236em .0618em .382em .0382em rgba($black, .118),
+	inset 0 -1px 0 0 $form-fields-border-color
+) !default;
+
+$textarea-box-shadow : (
 	inset 0 0 0 1px $form-fields-border-color
 ) !default;
 
 $form-fields-focus-box-shadow : (
-	inset 0 0 0 1px $form-fields-focus-ring-color
+	inset 0 -2px 0 0 $form-fields-focus-ring-color
 ) !default;
 
-$visited-browser-field-button-bg-color : $browser-field-button-bg-color !default;
-$hover-browser-field-button-bg-color   : lighten($browser-field-button-bg-color, 3%) !default;
-$active-browser-field-button-bg-color  : darken($browser-field-button-bg-color, 2%) !default;
+$textarea-focus-box-shadow : (
+	inset 0 0 0 2px $form-fields-focus-ring-color
+) !default;
+
+// $visited-browser-field-button-bg-color : $browser-field-button-bg-color !default;
+// $hover-browser-field-button-bg-color   : transparent !default;
+// $hover-browser-field-button-text-color : $text-color !default;
+// $active-browser-field-button-bg-color  : transparent !default;
 
 $textarea-resize : none !default;
 
@@ -280,3 +298,13 @@ $default-table-border-style : solid;
 $default-table-header-border-thickness : 3px !default;
 $default-table-footer-border-thickness : 3px !default;
 $default-table-cell-border-thickness : 1px !default;
+
+$table-caption-font-weight : $bold !default;
+
+// :: Toolbars -----------------------------------------------------------------
+$toolbar-bg-color : $grey-n00 !default;
+
+// :: Dropdown Menus -----------------------------------------------------------
+$toolbar-dropdown-header-bg-color : $grey-n00 !default;
+$toolbar-dropdown-header-hover-bg-color : $grey-n01 !default;
+$toolbar-dropdown-menu-bg-color : $grey-n00 !default;

@@ -1,0 +1,46 @@
+// NGN Chassis Detailer
+// UI Component: Dropdown Menus ------------------------------------------------
+
+@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+  .chassis .dropdown-menu {
+    position: relative;
+
+    display: inline-block;
+    margin-bottom: 0;
+
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    nav,
+    menu,
+    .menu {
+      position: absolute;
+      right: 0;
+      z-index: detailer-get-z-index(dropdown-menu);
+
+      // hide dropdown menus by default
+      @include hide;
+      flex-direction: column;
+
+      min-width: 100%;
+      white-space: nowrap;
+
+      a {
+        flex: 1 0 auto;
+        align-items: center;
+        display: block;
+      }
+    }
+
+    &:hover {
+      nav,
+      menu,
+      .menu {
+        @include show(flex);
+      }
+    }
+  }
+
+}

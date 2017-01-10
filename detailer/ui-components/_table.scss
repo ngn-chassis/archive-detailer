@@ -1,8 +1,8 @@
-// NGN Chassis
-// UI Components
+// NGN Chassis Detailer
+// UI Component: Table ---------------------------------------------------------
 
-// :: Tables
-
+// @mixin stack-below
+// Cause table to stack below a certain viewport-width
 @mixin stack-below($vp) {
   @include below-viewport-width($vp) {
     display: block;
@@ -26,54 +26,52 @@
 
 @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
 
-  .chassis {
+  .chassis table {
+    table-layout: fixed;
 
-    table {
-      table-layout: fixed;
+    @include block-layout-rules($has-padding: false);
+    width: 100%;
 
-      @include block-layout-rules($has-padding: false);
-      width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 
-      border: 0;
-      border-collapse: collapse;
-    	border-spacing: 0;
+    th,
+    td {
+      @include inline-layout-rules($has-margin: false, $multi-line: true);
+      overflow: hidden;
+      vertical-align: top;
 
-      caption,
-      th,
-      td {
-        @include inline-layout-rules($has-margin: false, $multi-line: true);
-        overflow: hidden;
-
-        font-weight: normal;
-      	vertical-align: middle;
-
-        text: {
-          align: left;
-          overflow: ellipsis;
-        }
-      }
-
-      @if $use-default-table-styles {
-        thead {
-          border-bottom: $default-table-header-border-thickness $default-table-border-style $default-table-border-color;
-        }
-
-        tfoot {
-          border-top: $default-table-footer-border-thickness $default-table-border-style $default-table-border-color;
-        }
-
-        tbody tr {
-          td {
-            border-bottom: $default-table-cell-border-thickness $default-table-border-style $default-table-border-color;
-          }
-
-          &:last-child td {
-            border-bottom: 0;
-          }
-        }
+      text: {
+        align: left;
+        overflow: ellipsis;
       }
     }
 
+    caption {
+      font-weight: $table-caption-font-weight;
+      text-align: left;
+    }
+
+    @if $use-default-table-styles {
+      thead {
+        border-bottom: $default-table-header-border-thickness $default-table-border-style $default-table-border-color;
+      }
+
+      tfoot {
+        border-top: $default-table-footer-border-thickness $default-table-border-style $default-table-border-color;
+      }
+
+      tbody tr {
+        td {
+          border-bottom: $default-table-cell-border-thickness $default-table-border-style $default-table-border-color;
+        }
+
+        &:last-child td {
+          border-bottom: 0;
+        }
+      }
+    }
   }
 
 }
