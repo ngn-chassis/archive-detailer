@@ -45,7 +45,7 @@ $default-tag-defs : ();
 		// Setup default padding and line-height rules
 		@include inline-layout-rules(root, $has-margin: false);
 
-		@include font-size(small);
+		@include set-typography(small);
 
 		@include chassis-default-rule(background, $default, bg-color, $default-tag-bg-color);
     @include chassis-default-rule(border-radius, $default, border-radius, $default-tag-border-radius);
