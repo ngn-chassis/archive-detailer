@@ -186,8 +186,11 @@ $disabled-default-button-opacity         : .382                        !default;
 
 
 // :: Icons --------------------------------------------------------------------
-$icon-color           : $text-color       !default;
-$icon-size-multiplier : $type-scale-ratio !default;
+$icon-color                              : $text-color                 !default;
+$icon-size-multiplier                    : $type-scale-ratio           !default;
+$icon-square-dimension                   : $icon-size-multiplier * 1em !default;
+$icon-width                              : $icon-square-dimension      !default;
+$icon-height                             : auto                        !default;
 
 
 // :: Tags ---------------------------------------------------------------------
@@ -233,7 +236,8 @@ $modal-vertical-alignment             : center !default;
 
 // :: Forms --------------------------------------------------------------------
 
-$form-mobile-layout-breakpoint    : small !default;
+$form-layout-gutter               : 1.91vw           !default;
+$form-layout-mobile-breakpoint    : small            !default;
 
 $form-fields-border-radius        : 0 !default;
 
@@ -258,14 +262,20 @@ $form-fields-bg-color             : $white           !default;
 $form-fields-border-color         : rgb(188,189,193) !default;
 $form-fields-focus-ring-color     : $blue            !default;
 
-$form-fields-button-bg-color    : transparent        !default;
-$form-fields-button-text-color  : $grey-n06          !default;
-$form-fields-button-text-hover-color  : $grey-n08      !default;
-$form-fields-button-icon-color  : $grey-n06          !default;
-$form-fields-button-icon-hover-color  : $grey-n08      !default;
+$form-fields-button-bg-color      : transparent      !default;
+$form-fields-button-text-color    : $grey-n06        !default;
+$form-fields-button-icon-color    : $grey-n06        !default;
+$form-fields-button-border-radius : 0                !default;
+
+$override-form-fields-button-padding : true          !default;
+$form-fields-button-padding       : 0                !default;
+
+$form-fields-button-hover-bg-color : transparent     !default;
+$form-fields-button-hover-icon-color : $text-color   !default;
+$form-fields-button-hover-text-color : $text-color   !default;
 
 
-$form-fields-box-shadow   : (
+$form-fields-box-shadow : (
 	inset 0 -1px 0 0 $form-fields-border-color
 ) !default;
 
@@ -290,7 +300,9 @@ $textarea-resize : none !default;
 
 
 // :: Table --------------------------------------------------------------------
-$use-default-table-styles : true !default;
+$use-default-table-styles   : true   !default;
+
+$default-table-bg-color     : $root-bg-color !default;
 
 $default-table-border-color : $grey-n02 !default;
 $default-table-border-style : solid;

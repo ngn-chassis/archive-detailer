@@ -1,0 +1,24 @@
+// NGN Chassis Detailer
+// UI Component: Form Reset ----------------------------------------------------
+
+@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+  .chassis {
+    // Reset -------------------------------------------------------------------
+    // NOTE: This ruleset must be independent of other selectors
+    ::-webkit-file-upload-button {
+    	padding: 0;
+    	border: 0;
+    	background: none;
+    }
+
+    ::-webkit-input-placeholder, // Chrome/Safari/Opera
+    :-ms-input-placeholder, // IE
+    ::-ms-input-placeholder { // Edge
+      color: $form-fields-placeholder-color;
+    }
+
+    ::placeholder {
+      color: $form-fields-placeholder-color;
+    }
+  }
+}

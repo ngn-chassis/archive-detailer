@@ -1,14 +1,42 @@
 // NGN Chassis Detailer
 // UI Component: Icons ---------------------------------------------------------
 
-.icon {
+$default-icon-defs : ();
 
-  &svg {
-    width: $icon-size-multiplier * 1em;
-    height: auto;
+@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+
+  $default-icon-defs : (
+    default: (
+      width: $icon-width,
+      height: $icon-height,
+      fill: $icon-color
+    )
+  );
+
+  .chassis svg.icon {
+    @extend %chassis-svg-icon;
+  }
+
+}
+
+@mixin chassis-svg-icon($settings) {
+  @if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+    $defs: ();
+    @if map-has-key($settings, default) {
+      $defs: map-get($settings, default);
+    } @else {
+      $defs: $settings;
+    }
+
+    @include chassis-default-rule(width, $defs, width, $icon-width);
+    @include chassis-default-rule(height, $defs, height, $icon-height);
     vertical-align: middle;
 
-    fill: $icon-color;
+    @include chassis-default-rule(fill, $defs, fill, $icon-color);
   	@extend %disable-pointer-events;
   }
+}
+
+%chassis-svg-icon {
+  @include chassis-svg-icon($default-icon-defs);
 }

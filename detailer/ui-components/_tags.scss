@@ -40,7 +40,9 @@ $default-tag-defs : ();
       $default: map-get($settings, default);
     }
 
-		display: inline-block;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 
 		// Setup default padding and line-height rules
 		@include inline-layout-rules(root, $has-margin: false);
@@ -55,7 +57,7 @@ $default-tag-defs : ();
 
     @include chassis-generate-box-shadow($default, $default-tag-border-thickness, $default-tag-border-color, $default-tag-box-shadow);
 
-    vertical-align: middle;
+    vertical-align: text-bottom;
 
 		font: {
       @if map-get($default, font-family) != $font-family {

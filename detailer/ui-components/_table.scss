@@ -5,7 +5,8 @@
 // Cause table to stack below a certain viewport-width
 @mixin stack-below($vp) {
   @include below-viewport-width($vp) {
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     thead,
     tbody,
@@ -14,6 +15,18 @@
     td,
     th {
       display: block;
+    }
+
+    caption {
+      order: -1;
+    }
+
+    thead {
+      position: static;
+    }
+
+    tfoot {
+      order: 99;
     }
 
     @if $use-default-table-styles {
@@ -54,8 +67,16 @@
     }
 
     @if $use-default-table-styles {
+      background-color: $default-table-bg-color;
+
       thead {
+        position: sticky;
+        top: 0;
+
+        background-color: $default-table-bg-color;
+
         border-bottom: $default-table-header-border-thickness $default-table-border-style $default-table-border-color;
+        box-shadow: 0 $default-table-header-border-thickness 0 0 $default-table-border-color;
       }
 
       tfoot {

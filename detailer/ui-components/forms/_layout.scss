@@ -1,0 +1,213 @@
+// NGN Chassis Detailer
+// UI Component: Form Layout ---------------------------------------------------
+
+@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+
+  .chassis {
+    // Form Layout Engine ------------------------------------------------------
+    // TODO: Add commentary
+
+    // <div class="field">
+    //   <div class="label-wrapper">
+    //     <label for="field_id">Field Label</label>
+    //
+    //   </div>
+    //   <div class="input-wrapper">
+    //     <input id="field_id" type="text" name="field_name" value="" placeholder="Field Placeholder">
+    //
+    //   </div>
+    // </div>
+
+    label {
+      display: block;
+    }
+
+    .label-wrapper {
+      display: flex;
+    }
+
+    // Wrapper element for inputs. Allows inputs to scale responsively, and
+    // handles display of elements placed next to inputs like buttons.
+    .input-wrapper {
+      display: flex;
+
+      * {
+        &:last-child {
+          margin-right: 0;
+        }
+
+        // IE11 overrides
+        &::-ms-backdrop,
+        input:not([type='checkbox']):not([type='radio']) {
+          min-height: 2.61803em;
+        }
+
+        &::-ms-backdrop,
+        textarea {
+          min-height: 7.85409em;
+        }
+      }
+
+      input {
+        &[type="date"],
+        &[type="datetime-local"],
+        &[type="email"],
+        &[type="file"],
+        &[type="month"],
+        &[type="number"],
+        &[type="password"],
+        &[type="range"],
+        &[type="search"],
+        &[type="tel"],
+        &[type="text"],
+        &[type="time"],
+        &[type="url"],
+        &[type="week"] {
+          flex: 1 1 auto;
+          width: 0;
+          max-width: 100%;
+          margin: 0;
+        }
+
+        &:focus ~ {
+          .button,
+          button {
+            box-shadow: $form-fields-focus-box-shadow;
+          }
+        }
+      }
+
+      textarea {
+        flex: 1 1 auto;
+        width: 0;
+        max-width: 100%;
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .button {
+        display: flex;
+        align-items: center;
+
+        margin: 0;
+
+        @if ($override-form-fields-button-padding) {
+          padding: $form-fields-button-padding;
+        }
+
+        border-radius: $form-fields-button-border-radius;
+        background: $form-fields-button-bg-color;
+        box-shadow: $form-fields-box-shadow;
+
+        color: $form-fields-button-text-color;
+
+        svg.icon {
+          fill: $form-fields-button-icon-color;
+        }
+
+        &:hover {
+          background: $form-fields-button-hover-bg-color;
+          color: $form-fields-button-hover-text-color;
+
+          svg.icon {
+            fill: $form-fields-button-hover-icon-color;
+          }
+        }
+      }
+    }
+
+    form {
+      > *:last-child,
+      fieldset > *:last-child {
+        margin-bottom: 0;
+      }
+
+      legend {
+        font: {
+          weight: $form-legend-font-weight;
+          style: $form-legend-font-style;
+          variant: $form-legend-font-variant;
+        }
+
+        text: {
+          decoration: $form-legend-text-decoration;
+          transform: $form-legend-text-transform;
+        }
+      }
+
+      // Field Components ------------------------------------------------------
+      .field {
+        @include block-layout-rules($has-padding: false);
+      }
+
+      // Container for collections of checkboxes or radio buttons
+      .group {
+        @include block-layout-rules($has-padding: false);
+
+        > header {
+          font-weight: $bold;
+        }
+
+        .field {
+          margin-bottom: 0;
+        }
+      }
+
+      // Container for multi-column form layouts
+      .row {
+        display: flex;
+        flex-direction: column;
+
+        @include block-layout-rules($has-padding: false);
+
+        > *:last-child {
+          margin-bottom: 0;
+        }
+
+        .group {
+          @include block-layout-rules($has-padding: false);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .field {
+            margin-bottom: 0;
+          }
+        }
+
+        @if map-has-key($viewport-width-ranges, $form-layout-mobile-breakpoint) {
+          @include above-viewport-width($form-layout-mobile-breakpoint) {
+            flex-direction: row;
+
+            .field,
+            .group {
+              flex: 1 1 50%;
+              margin: 0 $form-layout-gutter;
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+
+            .group {
+              padding: 0;
+
+              .field {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,106 @@
+// NGN Chassis Detailer
+// UI Component: Standalone Form Elements --------------------------------------
+
+@if variable-exists(CHASSIS_DETAILER_INCLUDED) and $CHASSIS_DETAILER_INCLUDED {
+  .chassis {
+    input {
+      &[type="date"],
+      &[type="datetime-local"],
+      &[type="email"],
+      &[type="file"],
+      &[type="month"],
+      &[type="number"],
+      &[type="password"],
+      &[type="range"],
+      &[type="search"],
+      &[type="tel"],
+      &[type="text"],
+      &[type="time"],
+      &[type="url"],
+      &[type="week"] {
+        @include inline-layout-rules;
+
+        background: $form-fields-bg-color;
+        box-shadow: $form-fields-box-shadow;
+
+        border: 0;
+        border-radius: $form-fields-border-radius;
+        outline: 0;
+
+        font: {
+          family: $form-fields-fonts;
+          weight: $form-fields-font-weight;
+        }
+
+        color: $form-fields-text-color;
+
+        &:focus {
+          outline: 0;
+          box-shadow: $form-fields-focus-box-shadow;
+        }
+      }
+
+      &[type="checkbox"],
+      &[type="radio"] {
+        + label {
+          display: inline-block;
+        }
+      }
+
+      &:placeholder-shown {
+        color: $form-fields-placeholder-color;
+      }
+    }
+
+    textarea {
+      @include inline-layout-rules($multi-line: true);
+
+      // Turn off scroll bars in IE unless needed
+      overflow: auto;
+
+      vertical-align: top;
+      resize: $textarea-resize;
+
+      background: $form-fields-bg-color;
+      box-shadow: $textarea-box-shadow;
+
+      border: 0;
+      border-radius: $form-fields-border-radius;
+      outline: 0;
+
+      font: {
+        family: $form-fields-fonts;
+        weight: $form-fields-font-weight;
+      }
+
+      color: $form-fields-text-color;
+
+      &:focus {
+        outline: 0;
+        box-shadow: $textarea-focus-box-shadow;
+      }
+
+      &:placeholder-shown {
+        color: $form-fields-placeholder-color;
+      }
+    }
+
+    button {
+      @extend %chassis-button;
+
+      font: {
+        family: $form-fields-fonts;
+        weight: $form-fields-font-weight;
+      }
+    }
+
+    select {
+      &[multiple] {
+        // If paired with an inline label, ensure that it displays next to the
+        // top quadrant of the select menu
+        vertical-align: top;
+      }
+    }
+  }
+
+}
