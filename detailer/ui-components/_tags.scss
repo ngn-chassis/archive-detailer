@@ -57,7 +57,7 @@ $default-tag-defs : ();
 
     @include chassis-generate-box-shadow($default, $default-tag-border-thickness, $default-tag-border-color, $default-tag-box-shadow);
 
-    vertical-align: text-bottom;
+    vertical-align: baseline;
 
 		font: {
       @if map-get($default, font-family) != $font-family {
