@@ -139,6 +139,10 @@ $default-button-defs : ();
     cursor: pointer;
 
     @extend %disable-text-selection;
+    
+    svg {
+      max-height: 100%;
+    }
 
     &:visited {
       @include chassis-default-rule(background, $visited, bg-color, $visited-default-button-bg-color);
